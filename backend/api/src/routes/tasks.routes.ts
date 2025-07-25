@@ -17,7 +17,7 @@ router.patch("/:id/complete", checkToken, async (req, res) => {
         where: { id },
         data: { status: "Completa" }
     }).then((updatedTask: any) => {
-        res.json({ message: "Tarefa atualizada com sucesso", task: updatedTask });
+        res.status(201).json({ message: "Tarefa atualizada com sucesso", task: updatedTask });
     }).catch((error: any) => {
         console.error("Erro ao atualizar tarefa:", error);
     });
